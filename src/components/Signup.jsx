@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import service from '../appwrite/auth'
+import authService from '../appwrite/auth'
 import { login } from '../store/authSlice'
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
-import {Button, Input, Logo} from "./index"
+import {Button, Input, LOGO} from "./index"
 
 
 function Signup() {
@@ -17,9 +17,9 @@ function Signup() {
     const create = async (data) => {
         setError("")
         try {
-            const userData = await service.createAccount(data)
+            const userData = await authService.createAccount(data)
             if (userData) {
-                const userData = await service.getCurrentUser()
+                const userData = await authService.getCurrentUser()
                 if(userData) {
                     dispatch(login(userData))
                 }
@@ -37,7 +37,7 @@ function Signup() {
       >
         <div className="flex justify-center mb-2">
           <span className="inline-block w-full max-w-[100px]">
-            <Logo width="100%" />
+            <LOGO width="100%" />
           </span>
         </div>
 
