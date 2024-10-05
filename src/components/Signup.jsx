@@ -65,10 +65,8 @@ function Signup() {
             <Input label="Email" placeholder="Enter your e-mail" type="email" {...register("email", {
                 required: true,
                 validate: {
-                  matchPattern: (value) =>
-                    /^([A-Z|a-z|0-9](\.|_){0,1})+[A-Z|a-z|0-9]\@([A-Z|a-z|0-9])+((\.){0,1}[A-Z|a-z|0-9]){2}\.[a-z]{2,3}$/gm.test(
-                      value
-                    ) || "Email enterd is not a valid email address",
+                  matchPattern: (value) =>/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) 
+                || "Email address must be a valid address",
                 },
               })} />
 

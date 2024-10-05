@@ -20,7 +20,7 @@ function Home() {
             <Container>
                 <div className='flex flex-wrap'>
                     <div className='w-full p-2'>
-                        <h1 className='text-2xl font-bold hover:text-gray-500'>No vlaid Posts available</h1>
+                        <h1 className='text-2xl font-bold hover:text-gray-500'>Login To Read Posts</h1>
                     </div>
                 </div>
             </Container>
