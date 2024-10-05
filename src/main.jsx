@@ -1,24 +1,24 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import {Provider} from 'react-redux';
-import store from './store/store.js';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { AddPost, AllPosts, EditPost, Home, Login, Post, Signup } from './components/pages/index.js';
-import { Login as LoginComponent ,Protected } from './components/index.js';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
+import { Provider } from "react-redux";
+import store from "./store/store.js";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Protected, Login as LoginComponent} from "./components/index.js";
+import { AddPost, AllPosts, EditPost, Home, Login, Post, Signup } from "./components/pages/index.js";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
     children: [
       {
-        path: '/',
+        path: "/",
         element: <Home />,
       },
       {
-        path: '/login',
+        path: "/login",
         element: (
           <Protected authentication={false}>
             <Login />
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: '/signup',
+        path: "/signup",
         element: (
           <Protected authentication={false}>
             <Signup />
@@ -34,44 +34,44 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: '/all-posts',
+        path: "/all-posts",
         element: (
           <Protected authentication>
-          {" "}
+            {" "}
             <AllPosts />
           </Protected>
         ),
       },
       {
-        path: '/add-post',
+        path: "/add-post",
         element: (
           <Protected authentication>
-          {" "}
+            {" "}
             <AddPost />
           </Protected>
         ),
       },
       {
-        path: '/edit-post/:slug',
+        path: "/edit-post/:slug",
         element: (
           <Protected authentication>
-          {" "}
+            {" "}
             <EditPost />
           </Protected>
         ),
       },
       {
-        path: '/post/:slug',
+        path: "/post/:slug",
         element: <Post />,
       },
-    ]
-  }
-])
+    ],
+  },
+]);
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-  <Provider store={store}>
-    <RouterProvider router={router} />
-  </Provider>
-  </StrictMode>,
-)
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  </React.StrictMode>
+);
