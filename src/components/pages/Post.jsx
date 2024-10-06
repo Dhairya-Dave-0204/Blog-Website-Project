@@ -16,7 +16,7 @@ export default function Post() {
 
   useEffect(() => {
     if (slug) {
-      appwriteService.getPost(slug).then((post) => {
+      service.getPost(slug).then((post) => {
         if (post) setPost(post);
         else navigate("/");
       });
@@ -24,7 +24,7 @@ export default function Post() {
   }, [slug, navigate]);
 
   const deletePost = () => {
-    appwriteService.deletePost(post.$id).then((status) => {
+    service.deletePost(post.$id).then((status) => {
       if (status) {
         appwriteService.deleteFile(post.featuredImage);
         navigate("/");
@@ -37,7 +37,7 @@ export default function Post() {
       <Container>
         <div className="relative flex justify-center w-full p-2 mb-4 border rounded-xl">
           <img
-            src={appwriteService.getFilePreview(post.featuredImage)}
+            src={service.getFilePreview(post.featuredImage)}
             alt={post.title}
             className="rounded-xl"
           />
