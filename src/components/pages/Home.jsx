@@ -17,9 +17,9 @@ function Home() {
         return (
             <div className="w-full py-8 mt-4 text-center">
                 <Container>
-                    <div className="flex flex-wrap">
+                    <div className="flex flex-wrap h-screen items-center">
                         <div className="w-full p-2">
-                            <h1 className="text-2xl font-bold hover:text-gray-500">
+                            <h1 className="text-4xl font-bold hover:text-gray-500">
                                 Login to read posts
                             </h1>
                         </div>

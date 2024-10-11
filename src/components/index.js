@@ -12,6 +12,7 @@ import Signup from './Signup';
 import Protected from './AuthLayout';
 import RTE from './RTE';
 import PostForm from './Post-form/PostForm';
+import LogoImg from './Logo.png';
 
 export {
     Header,
@@ -27,5 +28,6 @@ export {
     Signup,
     Protected,
     RTE,
-    PostForm
+    PostForm,
+    LogoImg
 }
